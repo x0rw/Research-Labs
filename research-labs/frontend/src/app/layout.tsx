@@ -2,7 +2,6 @@ import "@styles/globals.css"
 import type { Metadata } from "next"
 import { Toaster } from "@/components/ui/toaster"
 import Navbar from "@/components/navbar";
-import BackButton from "@/components/back-btn";
 
 export const metadata: Metadata = {
   title: "PFE",
@@ -17,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
 
         <Toaster />
-        {/* <Navbar /> */}
+        <Navbar />
         {children}
       </body>
     </html>
