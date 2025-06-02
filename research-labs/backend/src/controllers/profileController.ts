@@ -84,6 +84,7 @@ export default {
         return next(new errorHandler.ValidationError("User ID is required"));
       }
 
+      console.log(res);
       const isOwnProfile = req.user?.userId === id;
       const isAdmin = req.user?.role === 'ADMIN';
       if (!isOwnProfile && !isAdmin) {
@@ -94,6 +95,8 @@ export default {
       if (!user) {
         return next(new errorHandler.NotFoundError(`User with ID ${id} not found`));
       }
+
+      console.log(userData);
       const updatedUserId = await prisma.updateUser(id, userData);
 
       res.status(200).json({
